@@ -1,0 +1,29 @@
+Ligne de commande uttiliser:
+
+>composer create-project laravel/laravel Maisonneuve225430
+>cd Maisonneuve225430
+> php artisan make:model etudiant
+> php artisan make:model ville 
+> php artisan make:migration ville  
+> php artisan make:migration etudiant
+> php artisan  migrate  
+> php make:factory Etudiantfactory -m Etudiant
+> php artisan make:factory Villefactory -m Ville
+> php artisan tinker
+> \App\Models\Ville::factory()->times(15)->create()
+> \App\Models\Etudiant::factory()->times(100)->create()
+> php artisan make:controller Etudiant
+> php artisan make:controller Ville
+
+
+lien github:
+https://github.com/KingJester1193/tp1-laravel-julien
+
+Lien Web dev:
+
+
+
+
+
+
+..............
