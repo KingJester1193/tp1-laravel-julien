@@ -20,7 +20,8 @@ lien github:
 https://github.com/KingJester1193/tp1-laravel-julien
 
 Lien Web dev:
-
+e2295430.webdev.cmaisonneuve.qc.ca/tp1-laravel
+(plateforme deposer mais impossible d'exporter ma base de donne)
 
 
 
