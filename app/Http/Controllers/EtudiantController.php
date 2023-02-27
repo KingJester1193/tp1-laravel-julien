@@ -69,6 +69,17 @@ class EtudiantController extends Controller
 
 
     public function store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email'=> 'required|email|unique:users',
+            'password' => 'required|min:6|max:20',
+            'password_confirmation' => 'required_with:password|same:password|min:6|max:20',
+            'address' => 'required|',
+            'birthday'=> 'required|date',
+            'ville'=> 'required|numeric',
+            
+        ]);
+
       $etudiant = Etudiant::create([
             "nom" => $request->nom,
             "phone"=> $request->phone,

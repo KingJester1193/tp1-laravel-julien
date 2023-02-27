@@ -7,8 +7,8 @@
     <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Nos Etudiants</h2>
-          <a href="create">Ajouter un etudiant</a>
+          <h2>@lang('lang.index_title')</h2>
+         
           @if(session('success'))
             <h4>{{session('success')}}</h4>
          @endif
@@ -21,18 +21,18 @@
           <div class="col-lg-4 col-md-6 service-item d-flex just-cont_spc-even" data-aos="fade-up" data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-briefcase" style="color: #f57813;"></i></div>
             <div>
-              <h4 class="title"><a href="{{ route('etudiant.show', $etudiant->id) }}" class="">{{$etudiant->nom}}</a></h4>
+              <h4 class="title"><a href="{{ route('etudiant.show', $etudiant->id) }}" >{{$etudiant->name}}</a></h4>
               <p class="description">{{$etudiant->email}}</p>
               <p class="description">{{$etudiant->phone}}</p>
            
             </div>
 
-            <div class="student-btn">
-                    <a class="btn btn-primary" href="{{ route('etudiant.edit', $etudiant->id) }}">Modifier</a>
-                 
-              
-            </div>
-                
+
+
+
+
+
+
 
           </div>
           <!-- End Service Item -->

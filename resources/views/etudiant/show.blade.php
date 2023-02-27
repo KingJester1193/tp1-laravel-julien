@@ -18,7 +18,20 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-header">
-        <h2>Profil</h2>
+
+      @if(Auth::check() && Auth::user()->id == $etudiant->id)
+
+           <h1>@lang('lang.welcome'): {{Auth::user()->name}}</h1>
+          @else
+            <h2>Profil</h2>
+          
+
+          @endif
+
+
+
+
+       
 
       </div>
 
@@ -36,15 +49,27 @@
               </div>
             </div>
             <div class="member-info">
-              <h4>{{$etudiant->nom}}</h4>
+              <h4>{{$etudiant->name}}</h4>
               <span>{{$etudiant->email}}</span>
               <span>{{$etudiant->phone}}</span>
-              <span>{{$etudiant->adresse}}</span>
-              <span>{{$etudiant->date_naissance}}</span>
+              <span>{{$etudiant->address}}</span>
+              <span>{{$etudiant->birthday}}</span>
 
             </div>
           </div>
+
+          @if(Auth::check() && Auth::user()->id == $etudiant->id)
+          
+            <div class="student-btn">
+                    <a class=" btn btn-success mt-5 px-5" href="{{ route('etudiant.edit', Auth::user()->id) }}">@lang('lang.editBtn') Profil</a>
+                 
+              
+            </div>
+
+            @endif
+
         </div><!-- End Team Member -->
+
 
 
       </div>

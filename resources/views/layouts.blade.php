@@ -7,13 +7,14 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nova Bootstrap Template - About</title>
+  <title>@yield('title')</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,16 +50,26 @@
       <a href="{{ route('etudiant.index') }}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="d-flex align-items-center">Accueil</h1>
+        <h1 class="d-flex align-items-center">@lang('lang.home')</h1>
       </a>
 
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+     @guest
+               <a class="nav-link" href="{{route('login')}}">@lang('lang.login')</a>
+                <a class="nav-link" href="{{route('etudiant.create')}}">@lang('lang.signUp')</a>
+               
+            @else
+                <a class="nav-link" href="{{route('logout')}}">@lang('lang.logout')</a>  
+                <a class="nav-link" href="{{ route('blog.index')}}">@lang('lang.forum')</a>
+                <a class="nav-link" href="{{ route('file.index')}}">@lang('lang.file')</a>
+               
 
-      <nav id="navbar" class="navbar">
-         
-        </nav><!-- .navbar -->
 
+     @endguest 
+<div class="d-flex">
+      <a class="nav-link " href="{{route('lang', 'en')}}"><i class="flag flag-united-states"></i></a>
+      <a class="nav-link  " href="{{route('lang', 'fr')}}"><i class="flag flag-france"></i></a>
+</div>
+    
         </div>
     </header><!-- End Header -->
 

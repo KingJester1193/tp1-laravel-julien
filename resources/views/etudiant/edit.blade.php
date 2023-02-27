@@ -7,7 +7,7 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-color: teal;">
       <div class="container position-relative d-flex flex-column align-items-center">
 
-        <h2>Modification</h2>
+        <h2>@lang('lang.editStudent_title')</h2>
 
       </div>
     </div><!-- End Breadcrumbs -->
@@ -39,7 +39,7 @@
               @csrf
               <div class="row">
                 <div class=" form-group">
-                  <input type="text" name="nom" class="form-control" id="nom" value="{{$etudiant->nom}}" required>
+                  <input type="text" name="nom" class="form-control" id="nom" value="{{$etudiant->name}}" required>
                 </div>
                 <div class="form-group mt-3 mt-md-0">
                   <input type="email" class="form-control" name="email" id="email" value="{{$etudiant->email}}" required>
@@ -54,19 +54,19 @@
               
 
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="adresse" id="adresse"  value="{{$etudiant->adresse}}"required>
+                <input type="text" class="form-control" name="adresse" id="adresse"  value="{{$etudiant->address}}"required>
               </div>
               <div class="form-group mt-3">
               <select name="ville" id="ville">
                 @foreach ($villes as $ville)
-                    <option value="{{$ville->id}}" {{ $etudiant->villeId == $ville->id ? 'selected' : '' }}> {{$ville->nom}}</option>
+                    <option value="{{$ville->id}}" {{ $etudiant->villeId == $ville->id ? 'selected' : '' }}> {{$ville->name}}</option>
                 @endforeach
                 </select>
                 </div>
             </div>
             
               
-              <div class="text-center  d-flex justify-content-end"><button class=" btn btn-success mt-5 px-5" type="submit">Modifier</button></div>
+              <div class="text-center  d-flex justify-content-end"><button class=" btn btn-success mt-5 px-5" type="submit">@lang('lang.editBtn')</button></div>
             </div><!-- End Contact Form -->
           </form>
           </div>
@@ -75,7 +75,7 @@
           <form action="" method="post"> 
             @csrf
             @method('delete')
-            <div class="text-center  d-flex justify-content-end"> <input type="submit" value="destroy" class=" btn btn-danger mt-2 px-5"></div>
+            <div class="text-center  d-flex justify-content-end"> <input type="submit" value="@lang('lang.deleteBtn')" class=" btn btn-danger mt-2 px-5"></div>
           </form>
         </div>
         

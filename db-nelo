@@ -1,0 +1,497 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 24 fév. 2023 à 16:27
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `laravel_tp2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `villes`
+--
+
+CREATE TABLE `villes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `villes`
+--
+
+INSERT INTO `villes` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Montyview', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(2, 'Malcolmhaven', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(3, 'Kutchland', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(4, 'North Ocieberg', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(5, 'South Helga', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(6, 'Carlostown', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(7, 'Lake Loisport', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(8, 'New Dustyborough', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(9, 'New Keshawnton', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(10, 'Armaniland', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(11, 'West Branditown', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(12, 'Coraliebury', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(13, 'Carleyton', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(14, 'Lake Charlotte', '2023-02-02 00:22:28', '2023-02-02 00:22:28'),
+(15, 'Terryland', '2023-02-02 00:22:28', '2023-02-02 00:22:28');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(7, '2014_10_12_000000_create_users_table', 1),
+(8, '2014_10_12_100000_create_password_resets_table', 1),
+(9, '2019_08_19_000000_create_failed_jobs_table', 1),
+(10, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(11, '2023_02_01_175157_create_villes_table', 1),
+(12, '2023_02_01_175526_create_etudiants_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etudiants`
+--
+
+CREATE TABLE `etudiants` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `birthday` date NOT NULL,
+  `ville_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `etudiants`
+--
+
+INSERT INTO `etudiants` (`id`, `name`, `phone`, `address`, `email`, `birthday`, `ville_id`, `created_at`, `updated_at`) VALUES
+(1, 'Foster Rosenbaum', '+1.320.372.1379', '8882 Kihn Highway Apt. 245', 'shawnforever@example.com', '2004-07-17', 4, '2023-02-02 00:27:01', '2023-02-02 08:56:13'),
+(2, 'Kelly Heller', '270.785.0622', '1859 Terry Islands Apt. 034', 'bahringer.raheem@example.org', '2021-03-29', 1, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(3, 'Mrs. Aylin Yost', '651-652-8830', '1997 Lexus Shoals', 'lois.hoeger@example.com', '2022-01-11', 2, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(4, 'Rene Hill', '(603) 391-0449', '7327 Dillan Harbors Suite 405', 'winnifred70@example.net', '2004-08-28', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(5, 'Dr. Ulises Predovic', '+1-551-973-4352', '994 Kulas Walks', 'roselyn90@example.org', '2019-04-08', 9, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(6, 'Leila Halvorson Jr.', '878-327-2975', '52652 Ondricka Stravenue Suite 909', 'windler.precious@example.org', '2014-12-18', 1, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(7, 'Isabell Cruickshank', '+1.940.329.7067', '9059 Tessie Hollow', 'fhoeger@example.org', '2017-07-03', 2, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(8, 'Agnes Schaden', '605-435-7949', '325 Stehr Estate', 'charlene40@example.org', '1983-11-05', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(9, 'Marlen Kunze Sr.', '503-240-1681', '81773 Jammie Prairie', 'linwood36@example.com', '1997-10-22', 6, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(10, 'Crystel D\'Amore', '351.707.8148', '108 Geoffrey Drives', 'dandre38@example.net', '2017-09-24', 1, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(11, 'Mr. Aric Douglas', '(765) 698-7561', '8627 Gusikowski Trail', 'ygottlieb@example.com', '1980-04-17', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(12, 'Ada Yundt', '617.453.1111', '64237 Lubowitz Meadow', 'linnie.schmitt@example.org', '1995-11-24', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(13, 'Nya Johns', '508-444-6537', '119 Mose Dam', 'stanton.maximilian@example.com', '1984-04-15', 11, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(14, 'Cheyanne West', '+1-480-808-1410', '95334 Junior Loop Suite 866', 'marge03@example.net', '1984-02-14', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(15, 'Ines Dach', '1-352-764-8837', '213 Herbert Street Apt. 097', 'elva.powlowski@example.net', '1970-04-12', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(16, 'Nettie Spencer', '1-458-876-8051', '6570 Henriette Wall Apt. 140', 'braun.davon@example.org', '2013-02-08', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(17, 'Miss Willie Toy PhD', '+1.574.632.2991', '8754 VonRueden Plaza Suite 605', 'ehomenick@example.org', '2008-09-11', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(18, 'Keyon Hoeger', '240-755-4275', '989 Homenick Ports Apt. 286', 'luz59@example.com', '1993-01-04', 9, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(19, 'Johnson Leuschke', '+1-458-713-9604', '8129 Cordie Forest Suite 878', 'kovacek.albert@example.org', '2005-11-09', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(20, 'Viola Prohaska', '+14789137937', '239 Cyril Drive', 'deondre.mosciski@example.net', '1971-07-21', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(21, 'Elyse Treutel', '1-539-860-7578', '7264 Swift Lane', 'caesar.hermann@example.net', '1990-11-23', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(22, 'Samantha Schulist', '502.779.3042', '3463 Maxwell Turnpike', 'ehettinger@example.org', '2005-03-25', 12, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(23, 'Chester Shields', '(864) 341-8562', '656 Hessel Terrace Apt. 905', 'alfred.hermiston@example.com', '1973-11-19', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(24, 'Ms. Bria Kirlin MD', '1-689-428-0468', '535 Goldner Road Apt. 388', 'anya22@example.com', '2019-10-06', 4, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(25, 'Annabel Von Sr.', '(480) 916-8059', '5262 Gorczany Mountain Apt. 796', 'williamson.hazle@example.com', '2006-03-30', 4, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(26, 'Mohamed Swaniawski', '469.996.1636', '5470 Rosalee Meadows', 'irma73@example.org', '1997-01-22', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(27, 'Ms. Sierra Gutkowski IV', '(817) 651-1047', '38160 Zemlak Spurs Apt. 679', 'smcdermott@example.net', '1999-09-03', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(28, 'Alfredo Koss I', '+1.469.336.8209', '210 Flavio Freeway Apt. 271', 'lee41@example.org', '2003-06-08', 1, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(29, 'Keegan Sawayn', '615.390.1810', '3035 Thaddeus Avenue Apt. 653', 'alexzander.lesch@example.org', '2006-05-22', 9, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(30, 'Dr. Samara Pouros', '470-500-7659', '379 Ola Mountains Apt. 046', 'keven.crona@example.org', '1990-09-21', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(31, 'Dayne Prohaska', '+1 (805) 887-5913', '3574 Koss Centers', 'hermina.armstrong@example.com', '1996-10-04', 6, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(32, 'Stanford Rohan', '520-674-1469', '144 Moore Valleys Suite 242', 'vpowlowski@example.net', '1976-03-28', 3, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(33, 'Miss Kaycee Kuvalis', '1-239-482-5878', '1936 Cristal Expressway', 'lindsey.heathcote@example.net', '1993-04-02', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(34, 'Mitchel Koepp PhD', '(559) 593-4758', '624 Ankunding Inlet Suite 088', 'annabel.stark@example.net', '1983-10-04', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(35, 'Dax O\'Kon', '636.528.5435', '86962 Schowalter Terrace Suite 057', 'aditya.littel@example.org', '2003-12-21', 3, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(36, 'Barton Gottlieb MD', '+1.956.362.4747', '8108 Kuphal Fields Suite 448', 'destany.skiles@example.com', '1982-12-25', 6, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(37, 'Lillie Cummings', '720-586-8450', '280 Upton Estates Suite 599', 'zhirthe@example.com', '2017-04-11', 11, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(38, 'Mr. Geoffrey Strosin', '+1.928.708.7038', '4157 Sipes Walk', 'powlowski.kyla@example.com', '2007-10-26', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(39, 'Dr. Jaden Brakus', '+13604430555', '341 Gerard Mountain', 'nola08@example.org', '1998-01-27', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(40, 'Janick Ullrich', '+1 (610) 616-3466', '492 Lowe Summit Suite 406', 'johathan.jenkins@example.net', '2014-09-23', 10, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(41, 'Kayla Leannon', '1-864-258-2068', '71637 Nader Shores Apt. 640', 'naomi78@example.com', '2011-08-10', 10, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(42, 'Lexus Bogan IV', '+1-754-680-5356', '62356 Dare Cove Apt. 603', 'ross.waters@example.com', '2018-02-14', 4, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(43, 'Carol Kshlerin', '1-409-659-2079', '282 Flatley Green', 'sawayn.guiseppe@example.net', '2003-11-25', 1, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(44, 'Charlene Lebsack', '+1-813-433-1392', '63580 Devyn Wells Apt. 955', 'feest.lue@example.net', '1981-08-06', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(45, 'Emmet Crona', '+1-512-917-5050', '8296 O\'Keefe Neck Apt. 303', 'shaniya.gulgowski@example.net', '1994-01-01', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(46, 'Dr. Juwan Davis I', '678-340-2862', '184 Flatley Neck', 'tspencer@example.net', '2017-12-11', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(47, 'Dr. Delfina Cummerata', '+1 (845) 934-2043', '94443 Omer Dale', 'arden35@example.org', '2006-05-31', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(48, 'Lizzie Brakus', '1-848-356-3515', '72535 Torp Light Suite 550', 'bartoletti.aiyana@example.com', '2007-06-06', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(49, 'Maximo Beer', '207.768.2564', '1989 Kilback Spring', 'west.esperanza@example.org', '1986-12-04', 6, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(50, 'Dr. Kristian Bergnaum DDS', '(830) 496-8764', '92569 Abigayle Skyway', 'vsipes@example.net', '2009-01-04', 10, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(51, 'Dr. Hertha Howell IV', '+1.915.276.2008', '4348 Dooley Ridge', 'lafayette.morar@example.org', '1974-11-09', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(52, 'Mrs. Maddison Emard II', '+15738744228', '60764 Trantow Highway', 'chalvorson@example.net', '2020-08-30', 11, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(53, 'Claudia Schulist', '+1-440-976-5222', '41385 Brakus Cliff Apt. 488', 'tre08@example.com', '1990-02-06', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(54, 'Mrs. Mary Lubowitz', '+14809175621', '410 Hardy Shore Suite 453', 'lokeefe@example.org', '1996-10-29', 9, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(55, 'Dr. Summer Berge', '+1-858-858-8000', '280 Bayer Station Suite 073', 'macejkovic.kathryn@example.net', '1998-03-28', 6, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(56, 'Dr. Henri Cremin', '832-462-0755', '4988 VonRueden Trail Suite 080', 'madisyn35@example.org', '2010-05-25', 9, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(57, 'Dr. Tyrell Lind', '520-347-7234', '202 Weber Drives', 'vernie63@example.com', '1999-03-10', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(58, 'Kobe Aufderhar', '325-712-5672', '7762 Rolando Valley', 'maia62@example.net', '2015-02-11', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(59, 'Travis Thiel', '(551) 399-0080', '3991 Lang Mountain', 'eeichmann@example.net', '2020-07-28', 10, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(60, 'Dr. Gino Corwin', '(325) 454-6840', '3485 Alejandrin Square', 'enrique98@example.com', '2016-12-27', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(61, 'Berniece Bartoletti IV', '+1-567-462-4099', '5888 Haag Mountain', 'tressa.jones@example.org', '2021-01-12', 10, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(62, 'Ursula Zieme', '612-805-0911', '7401 Sid Camp Suite 860', 'elmo97@example.net', '2015-09-03', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(63, 'Nathanial Ziemann', '339.832.8707', '9414 Becker Rue', 'mmuller@example.org', '2000-02-08', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(64, 'Kelsi Reynolds III', '1-463-736-4157', '13950 Phyllis Dale', 'marjorie32@example.net', '2022-05-04', 10, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(65, 'Hudson Cummings', '351-535-6176', '63823 Kovacek Pine', 'dtremblay@example.com', '2001-09-13', 4, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(66, 'Dr. Anahi Mann', '+15634190074', '647 Scotty Springs Suite 771', 'bsimonis@example.com', '1979-07-11', 1, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(67, 'Mrs. Camilla Gislason PhD', '940.385.0444', '835 Graciela Fields Apt. 346', 'zulauf.luz@example.com', '2017-04-21', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(68, 'Casimir Kerluke', '838-720-4322', '71256 Kobe Hill Suite 935', 'tmante@example.org', '1988-04-23', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(69, 'Isai Aufderhar I', '1-458-642-4348', '8874 Keely Corner', 'etha46@example.com', '2007-12-22', 11, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(70, 'Anastasia Cummings', '423-741-8333', '353 Vada Spurs', 'kessler.naomie@example.org', '1971-05-23', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(71, 'Liliana Glover DVM', '+1.810.741.6302', '5544 Heathcote Ferry Apt. 099', 'bpacocha@example.com', '2000-10-27', 15, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(72, 'Norene Cassin', '+16824678894', '65456 Huel Park Apt. 675', 'bstark@example.org', '2005-12-31', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(73, 'Baby McGlynn', '1-863-787-6017', '54560 Kacie Centers Apt. 988', 'rpowlowski@example.net', '1980-04-12', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(74, 'Reilly Prosacco', '1-279-468-1181', '356 Kenneth Lodge Apt. 592', 'sophia.kutch@example.net', '1975-04-23', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(75, 'Braxton McDermott', '+15865246432', '59541 Nash Skyway', 'klein.verda@example.net', '1974-08-11', 15, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(76, 'Mona Mraz', '+1.225.346.7721', '22253 Morissette Parkways', 'nina83@example.org', '1988-07-27', 2, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(77, 'Dr. Pete Frami III', '+1-650-526-7491', '1213 Kyler Coves', 'maeve13@example.net', '2020-09-06', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(78, 'Rosalinda O\'Connell MD', '719.472.4274', '7415 Ashly Views Suite 392', 'paxton.johnston@example.net', '1975-02-15', 12, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(79, 'Prof. Felton Schowalter', '+13182942637', '6524 Gay Forks Suite 027', 'windler.luciano@example.net', '1986-11-08', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(80, 'Mr. Demarcus Klocko', '320-818-6417', '86751 Chloe Trafficway Apt. 697', 'murray.brady@example.com', '1970-05-10', 3, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(81, 'Francis King', '1-984-615-8289', '24474 Joel Garden Apt. 117', 'uwitting@example.net', '1985-11-28', 2, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(82, 'Oliver Moore', '380-386-8568', '323 Bartoletti Estate', 'waelchi.gust@example.net', '1998-06-05', 11, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(83, 'Rae Ziemann', '+15643277531', '74917 Boyd Ramp', 'tania06@example.net', '1995-01-03', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(84, 'Alisha Christiansen', '1-959-708-5598', '226 Oswald Mews', 'narciso.raynor@example.net', '1988-04-01', 2, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(85, 'Rod Bode', '(612) 912-0731', '3261 Aaron Crossing Suite 767', 'utremblay@example.com', '1999-10-01', 15, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(86, 'Dr. Hilma Bauch', '503.955.4317', '822 Beulah Orchard Apt. 329', 'eschulist@example.org', '2002-06-04', 8, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(87, 'Kelsie Doyle', '334-816-3126', '985 Nitzsche Gardens Apt. 249', 'goyette.celia@example.com', '1972-12-21', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(88, 'Dr. Josue Zemlak Jr.', '979.483.0151', '95205 Wyman Meadows', 'azulauf@example.com', '2019-03-02', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(89, 'Waldo Torphy', '(828) 741-6557', '247 Huel Circles', 'rowan.hauck@example.net', '2013-01-22', 13, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(90, 'Mr. Kayley Shanahan DVM', '1-806-649-7023', '13501 Lind Viaduct Suite 050', 'mitchell.eladio@example.com', '2005-04-05', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(91, 'Armani Durgan IV', '1-847-712-3322', '1732 Brando Circle', 'matilda44@example.net', '2001-02-18', 5, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(92, 'Rafael Hickle', '+1-864-703-8052', '4141 Bashirian Alley Suite 192', 'felipe54@example.com', '1997-02-18', 12, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(93, 'Jefferey Mraz', '(831) 916-2016', '3116 Edgar Garden Apt. 188', 'pete.lubowitz@example.net', '2002-05-05', 14, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(94, 'Kelley Hills', '283.995.4647', '751 Hattie Neck Suite 376', 'pgottlieb@example.com', '1981-01-07', 2, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(95, 'Justice Gleichner', '1-541-687-6669', '19493 Jacobi Valley Apt. 228', 'fay.johnnie@example.net', '1976-10-16', 3, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(96, 'Natalia Conroy', '+1-986-765-0849', '704 Mathilde Isle Suite 380', 'gkirlin@example.com', '2019-07-27', 2, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(97, 'Edythe Dietrich DVM', '602.245.2034', '2960 Reichert Bypass', 'lavern.herman@example.com', '1989-12-12', 10, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(98, 'Minnie Runolfsson', '603-799-8742', '14605 Pfannerstill Ranch', 'tyler.daniel@example.org', '2017-07-24', 7, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(99, 'Mr. Craig Altenwerth V', '+1-517-355-8696', '655 Destany Cliff', 'allen48@example.net', '1970-11-17', 12, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(100, 'Jacinthe Macejkovic DVM', '(364) 803-9454', '97768 Theron Ramp', 'amaya70@example.net', '1989-06-04', 11, '2023-02-02 00:27:01', '2023-02-02 00:27:01'),
+(101, 'Pénélope Ducharme', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme@gmail.com', '2023-01-29', 3, '2023-02-02 06:44:52', '2023-02-02 06:44:52'),
+(111, 'Pénélope Ducharme2', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme2@gmail.com', '2023-01-29', 12, '2023-02-03 22:41:16', '2023-02-03 22:41:16'),
+(112, 'Pénélope Ducharme3', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme3@gmail.com', '2023-02-21', 14, '2023-02-03 22:49:14', '2023-02-03 22:49:14'),
+(113, 'Pénélope Ducharme4', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme4@gmail.com', '2023-01-30', 14, '2023-02-03 22:53:31', '2023-02-03 22:53:31'),
+(114, 'Pénélope Ducharme5', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme5@gmail.com', '2023-01-29', 11, '2023-02-03 22:54:16', '2023-02-03 22:54:16'),
+(115, 'Pénélope Ducharme6', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme6@gmail.com', '2023-01-29', 14, '2023-02-03 22:55:45', '2023-02-03 22:55:45'),
+(116, 'Pénélope Ducharme7', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme7@gmail.com', '2023-01-29', 8, '2023-02-03 22:57:53', '2023-02-03 22:57:53'),
+(117, 'Pénélope Ducharme8', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme8@gmail.com', '2023-01-29', 13, '2023-02-03 23:14:12', '2023-02-03 23:14:12'),
+(118, 'Pénélope Ducharme', '5147930550', '6115 rue d\'Aragon', 'penelopeducharme10@gmail.com', '2023-01-29', 8, '2023-02-03 23:15:16', '2023-02-03 23:39:18'),
+(120, 'test', '5147930550', 'test', 'test@gmail.com', '2023-02-01', 13, '2023-02-24 20:09:25', '2023-02-24 20:09:25'),
+(121, 'test2', '5147930550', 'test2', 'test2@gmail.com', '2023-01-30', 3, '2023-02-24 20:24:31', '2023-02-24 20:24:31');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Foster Rosenbaum', 'shawnforever@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(2, 'Kelly Heller', 'bahringer.raheem@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(3, 'Mrs. Aylin Yost', 'lois.hoeger@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(4, 'Rene Hill', 'winnifred70@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(5, 'Dr. Ulises Predovic', 'roselyn90@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(6, 'Leila Halvorson Jr.', 'windler.precious@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(7, 'Isabell Cruickshank', 'fhoeger@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(8, 'Agnes Schaden', 'charlene40@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(9, 'Marlen Kunze Sr.', 'linwood36@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(10, 'Crystel D\'Amore', 'dandre38@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(11, 'Mr. Aric Douglas', 'ygottlieb@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(12, 'Ada Yundt', 'linnie.schmitt@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(13, 'Nya Johns', 'stanton.maximilian@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(14, 'Cheyanne West', 'marge03@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(15, 'Ines Dach', 'elva.powlowski@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(16, 'Nettie Spencer', 'braun.davon@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(17, 'Miss Willie Toy PhD', 'ehomenick@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(18, 'Keyon Hoeger', 'luz59@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(19, 'Johnson Leuschke', 'kovacek.albert@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(20, 'Viola Prohaska', 'deondre.mosciski@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(21, 'Elyse Treutel', 'caesar.hermann@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(22, 'Samantha Schulist', 'ehettinger@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(23, 'Chester Shields', 'alfred.hermiston@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(24, 'Ms. Bria Kirlin MD', 'anya22@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(25, 'Annabel Von Sr.', 'williamson.hazle@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(26, 'Mohamed Swaniawski', 'irma73@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(27, 'Ms. Sierra Gutkowski IV', 'smcdermott@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(28, 'Alfredo Koss I', 'lee41@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(29, 'Keegan Sawayn', 'alexzander.lesch@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(30, 'Dr. Samara Pouros', 'keven.crona@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(31, 'Dayne Prohaska', 'hermina.armstrong@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(32, 'Stanford Rohan', 'vpowlowski@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(33, 'Miss Kaycee Kuvalis', 'lindsey.heathcote@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(34, 'Mitchel Koepp PhD', 'annabel.stark@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(35, 'Dax O\'Kon', 'aditya.littel@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(36, 'Barton Gottlieb MD', 'destany.skiles@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(37, 'Lillie Cummings', 'zhirthe@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(38, 'Mr. Geoffrey Strosin', 'powlowski.kyla@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(39, 'Dr. Jaden Brakus', 'nola08@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(40, 'Janick Ullrich', 'johathan.jenkins@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(41, 'Kayla Leannon', 'naomi78@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(42, 'Lexus Bogan IV', 'ross.waters@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(43, 'Carol Kshlerin', 'sawayn.guiseppe@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(44, 'Charlene Lebsack', 'feest.lue@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(45, 'Emmet Crona', 'shaniya.gulgowski@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(46, 'Dr. Juwan Davis I', 'tspencer@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(47, 'Dr. Delfina Cummerata', 'arden35@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(48, 'Lizzie Brakus', 'bartoletti.aiyana@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(49, 'Maximo Beer', 'west.esperanza@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(50, 'Dr. Kristian Bergnaum DDS', 'vsipes@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(51, 'Dr. Hertha Howell IV', 'lafayette.morar@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(52, 'Mrs. Maddison Emard II', 'chalvorson@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(53, 'Claudia Schulist', 'tre08@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(54, 'Mrs. Mary Lubowitz', 'lokeefe@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(55, 'Dr. Summer Berge', 'macejkovic.kathryn@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(56, 'Dr. Henri Cremin', 'madisyn35@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(57, 'Dr. Tyrell Lind', 'vernie63@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(58, 'Kobe Aufderhar', 'maia62@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(59, 'Travis Thiel', 'eeichmann@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(60, 'Dr. Gino Corwin', 'enrique98@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(61, 'Berniece Bartoletti IV', 'tressa.jones@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(62, 'Ursula Zieme', 'elmo97@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(63, 'Nathanial Ziemann', 'mmuller@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(64, 'Kelsi Reynolds III', 'marjorie32@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(65, 'Hudson Cummings', 'dtremblay@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(66, 'Dr. Anahi Mann', 'bsimonis@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(67, 'Mrs. Camilla Gislason PhD', 'zulauf.luz@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(68, 'Casimir Kerluke', 'tmante@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(69, 'Isai Aufderhar I', 'etha46@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(70, 'Anastasia Cummings', 'kessler.naomie@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(71, 'Liliana Glover DVM', 'bpacocha@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(72, 'Norene Cassin', 'bstark@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(73, 'Baby McGlynn', 'rpowlowski@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(74, 'Reilly Prosacco', 'sophia.kutch@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(75, 'Braxton McDermott', 'klein.verda@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(76, 'Mona Mraz', 'nina83@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(77, 'Dr. Pete Frami III', 'maeve13@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(78, 'Rosalinda O\'Connell MD', 'paxton.johnston@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(79, 'Prof. Felton Schowalter', 'windler.luciano@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(80, 'Mr. Demarcus Klocko', 'murray.brady@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(81, 'Francis King', 'uwitting@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(82, 'Oliver Moore', 'waelchi.gust@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(83, 'Rae Ziemann', 'tania06@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(84, 'Alisha Christiansen', 'narciso.raynor@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(85, 'Rod Bode', 'utremblay@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(86, 'Dr. Hilma Bauch', 'eschulist@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(87, 'Kelsie Doyle', 'goyette.celia@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(88, 'Dr. Josue Zemlak Jr.', 'azulauf@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(89, 'Waldo Torphy', 'rowan.hauck@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(90, 'Mr. Kayley Shanahan DVM', 'mitchell.eladio@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(91, 'Armani Durgan IV', 'matilda44@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(92, 'Rafael Hickle', 'felipe54@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(93, 'Jefferey Mraz', 'pete.lubowitz@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(94, 'Kelley Hills', 'pgottlieb@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(95, 'Justice Gleichner', 'fay.johnnie@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(96, 'Natalia Conroy', 'gkirlin@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(97, 'Edythe Dietrich DVM', 'lavern.herman@example.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(98, 'Minnie Runolfsson', 'tyler.daniel@example.org', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(99, 'Mr. Craig Altenwerth V', 'allen48@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(100, 'Jacinthe Macejkovic DVM', 'amaya70@example.net', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(101, 'Pénélope Ducharme', 'penelopeducharme@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(111, 'Pénélope Ducharme2', 'penelopeducharme2@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(112, 'Pénélope Ducharme3', 'penelopeducharme3@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(113, 'Pénélope Ducharme4', 'penelopeducharme4@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(114, 'Pénélope Ducharme5', 'penelopeducharme5@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(115, 'Pénélope Ducharme6', 'penelopeducharme6@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(116, 'Pénélope Ducharme7', 'penelopeducharme7@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(117, 'Pénélope Ducharme8', 'penelopeducharme8@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(118, 'Pénélope Ducharme', 'penelopeducharme10@gmail.com', NULL, 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL),
+(120, 'test', 'test@gmail.com', NULL, 'Test123456', NULL, '2023-02-24 20:09:25', '2023-02-24 20:09:25'),
+(121, 'test2', 'test2@gmail.com', NULL, '$2y$10$GTzmDqvotL2LLHzoL2I.y.TAqTSoS0FuXy9Kg1Jy3YV1hDDXCCIbO', NULL, '2023-02-24 20:24:31', '2023-02-24 20:24:31');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `villes`
+--
+ALTER TABLE `villes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Index pour la table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Index pour la table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Index pour la table `etudiants`
+--
+ALTER TABLE `etudiants`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `etudiants_email_unique` (`email`),
+  ADD KEY `etudiants_ville_id_foreign` (`ville_id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `villes`
+--
+ALTER TABLE `villes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `etudiants`
+--
+ALTER TABLE `etudiants`
+  ADD CONSTRAINT `etudiants_ville_id_foreign` FOREIGN KEY (`ville_id`) REFERENCES `villes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `etudiants_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

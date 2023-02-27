@@ -28,10 +28,14 @@
   scroll-behavior: smooth;
 }
 
+
 /*--------------------------------------------------------------
 # Ajout personnel
 --------------------------------------------------------------*/
+.color-nav{
+  color: #f57813;
 
+}
 .student-btn{
   display: flex;
   flex-flow: column;
@@ -41,12 +45,17 @@
 .just-cont_spc-even{
     justify-content: space-evenly;
 }
-
+.svg_download{
+  width: 25px;
+}
 
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.login-form{
+  margin-top: 100px;
+}
 body {
   font-family: var(--font-default);
   color: var(--color-default);
@@ -263,6 +272,10 @@ section {
   z-index: 997;
   padding: 24px 0;
 }
+.header a{
+  color: #f57813;
+  
+}
 
 @media (max-width: 1200px) {
   .header {
@@ -273,6 +286,7 @@ section {
 .header.sticked {
   background: rgba(27, 47, 69, 0.9);
   padding: 12px 0;
+  color: white;
 }
 
 .header .logo img {
@@ -280,13 +294,16 @@ section {
   margin-right: 6px;
 }
 
-.header .logo h1 {
+.header .logo  h1 {
   font-size: 30px;
   font-weight: 700;
-  color: #fff;
+  color: #f57813;
   font-family: var(--font-secondary);
   margin: 0;
+ 
+ 
 }
+
 
 /*--------------------------------------------------------------
 # Desktop Navigation
